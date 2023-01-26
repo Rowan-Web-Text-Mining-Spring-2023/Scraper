@@ -1,3 +1,3 @@
-# Team 2
+# Contributors
 
 Vince Corradetti
