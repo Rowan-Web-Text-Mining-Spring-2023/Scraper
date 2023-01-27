@@ -1,12 +1,12 @@
-twitter_handles = [
+twitter_users = [
     "Cristiano",
     "alexmorgan13",
-    "CHARLESBARRKLEY",
+    # "CHARLESBARRKLEY", # not authorized
     "terrellowens",
     "thecooleyzone",
     "RyanWhitney6",
     "CaroWozniacki",
-    "ShadownJohnson",
+    "ShawnJohnson",
     "paulpierce34",
     "AaronRodgers12",
 ]
