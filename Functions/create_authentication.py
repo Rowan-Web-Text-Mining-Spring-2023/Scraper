@@ -24,3 +24,7 @@ def create_client():
         access_token=access_token,
         access_token_secret=access_token_secret,
     )
+
+
+api = create_authentication()
+client = create_client()

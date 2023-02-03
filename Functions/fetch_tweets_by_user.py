@@ -1,11 +1,6 @@
 import tweepy
-from .create_authentication import (
-    create_authentication as tweepy_auth,
-    create_client as tweepy_client,
-)  # import throws error when debugging, fix this sometime soon
-
-api = tweepy_auth()
-client = tweepy_client()
+from .create_authentication import api, client
+from .fetch_tweets_by_id import fetch_tweets_by_id
 
 
 def fetch_tweets_by_user(user: str, number_of_tweets: int = 1):
@@ -14,40 +9,27 @@ def fetch_tweets_by_user(user: str, number_of_tweets: int = 1):
 
     for tweet in api_response[:number_of_tweets]:
         tweet_id = validate_value(tweet, "id")
-        conversation_id = 1
-        url = tweet_url_builder(tweet_id)
-        date = validate_value(tweet, "text")
-        content = validate_value(tweet, "text")
-        user = validate_value(tweet.user, "name")
-        retweet_count = validate_value(tweet, "retweet_count")
-        like_count = validate_value(tweet, "favorite_count")
-        quote_count = 1
-        lang = validate_value(tweet, "lang")
-        source = 1
-        coordinates = 1
+        tweet_statistics = fetch_tweets_by_id(tweet_id)
 
-        # response = client.get_tweet(id=tweet_id, user_auth=True)
-
-        # print(response)
-
+        # I really need to refactor this
         tweets.append(
             {
-                "url": url,
-                "date": date,
-                "content": content,
+                "url": tweet_url_builder(tweet_id),
+                "date": validate_value(tweet, "text"),
+                "content": validate_value(tweet, "text"),
                 "id": tweet_id,
-                "user": user,
-                "retweet_count": retweet_count,
-                "like_count": like_count,
-                "quote_count": quote_count,
-                "conversation_id": conversation_id,
-                "lang": lang,
-                "source": source,
-                "coordinates": coordinates,
+                "user": validate_value(tweet.user, "name"),
+                "retweet_count": tweet_statistics.public_metrics["retweet_count"],
+                "like_count": tweet_statistics.public_metrics["like_count"],
+                "quote_count": tweet_statistics.public_metrics["quote_count"],
+                "conversation_id": validate_value(tweet, "conversation_id"),
+                "lang": validate_value(tweet, "lang"),
+                "source": validate_value(tweet, "source"),
+                "coordinates": validate_value(tweet, "place"),
             }
         )
 
-    return {user: tweets}
+    return {user: [tweets]}
 
 
 def validate_value(tweet, key):
