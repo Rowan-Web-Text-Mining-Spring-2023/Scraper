@@ -29,7 +29,7 @@ def fetch_tweets_by_user(user: str, number_of_tweets: int = 1):
             }
         )
 
-    return {user: [tweets]}
+    return {"tweets": tweets}
 
 
 def validate_value(tweet, key):

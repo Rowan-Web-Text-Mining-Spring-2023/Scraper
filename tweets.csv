@@ -1,2 +1,4 @@
-,Cristiano
-0,"{'url': 'https://twitter.com/twitter/statuses/1621171580524187648', 'date': 'Good luck tomorrow!💪🏼\n💛💙 https://t.co/FL6S0z8Dse', 'content': 'Good luck tomorrow!💪🏼\n💛💙 https://t.co/FL6S0z8Dse', 'id': 1621171580524187648, 'user': 'Cristiano Ronaldo', 'retweet_count': 8271, 'like_count': 107767, 'quote_count': 189, 'conversation_id': None, 'lang': 'en', 'source': 'Twitter for iPhone', 'coordinates': None}"
+,Url,Date,Content,Id,User,Retweet_count,Like_count,Quote_count,Conversation_id,Lang,Source,Coordinates
+0,https://twitter.com/twitter/statuses/1621171580524187648,"Good luck tomorrow!💪🏼
+💛💙 https://t.co/FL6S0z8Dse","Good luck tomorrow!💪🏼
+💛💙 https://t.co/FL6S0z8Dse",1621171580524187648,Cristiano Ronaldo,8292,108207,189,,en,Twitter for iPhone,
