@@ -9,6 +9,6 @@ if __name__ == "__main__":
     aggregate_dictionary = {}
 
     for user in users:
-        add_to_dictionary(aggregate_dictionary, fetch_tweets_by_user(user, 1))
+        add_to_dictionary(aggregate_dictionary, fetch_tweets_by_user(user, 10))
 
     create_csv(aggregate_dictionary["tweets"])

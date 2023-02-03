@@ -3,7 +3,7 @@ from .create_authentication import api, client
 from .fetch_tweets_by_id import fetch_tweets_by_id
 
 
-def fetch_tweets_by_user(user: str, number_of_tweets: int = 1):
+def fetch_tweets_by_user(user: str, number_of_tweets: int = 10):
     api_response = api.user_timeline(screen_name=user, count=number_of_tweets)
     tweets = []
 
@@ -15,7 +15,7 @@ def fetch_tweets_by_user(user: str, number_of_tweets: int = 1):
         tweets.append(
             {
                 "url": tweet_url_builder(tweet_id),
-                "date": validate_value(tweet, "text"),
+                "date": validate_value(tweet, "created_at"),
                 "content": validate_value(tweet, "text"),
                 "id": tweet_id,
                 "user": validate_value(tweet.user, "name"),
@@ -29,9 +29,7 @@ def fetch_tweets_by_user(user: str, number_of_tweets: int = 1):
             }
         )
 
-    x = {"author": user, "tweets": tweets}
-
-    return x
+    return {"author": user, "tweets": tweets}
 
 
 def validate_value(tweet, key):
