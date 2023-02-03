@@ -29,7 +29,9 @@ def fetch_tweets_by_user(user: str, number_of_tweets: int = 1):
             }
         )
 
-    return {"tweets": tweets}
+    x = {"author": user, "tweets": tweets}
+
+    return x
 
 
 def validate_value(tweet, key):
