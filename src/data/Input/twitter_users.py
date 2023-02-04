@@ -1,7 +1,7 @@
 twitter_users = [
     "Cristiano",
     "alexmorgan13",
-    # "CHARLESBARRKLEY", # not authorized
+    "BarkleyonTNT",
     "terrellowens",
     "thecooleyzone",
     "RyanWhitney6",
@@ -9,4 +9,6 @@ twitter_users = [
     "ShawnJohnson",
     "paulpierce34",
     "AaronRodgers12",
+    "TheGoblinnn",
+    "mybabelproject",
 ]
