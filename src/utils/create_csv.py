@@ -1,14 +1,13 @@
 import pandas as pd
 
 
-def create_csv(data: dict):
+def create_csv(tweets_array):
     try:
-        data_frame = pd.DataFrame.from_dict(data)
-        data_frame.columns = map(str.upper, data_frame.columns)
+        data_frame = pd.DataFrame(tweets_array)
         data_frame.to_csv("tweets.csv", encoding="utf-8-sig")
 
-        print("=========================")
-        print("          Done           ")
-        print("=========================")
+        print("*=======================*")
+        print("*          Done         *")
+        print("*=======================*")
     except Exception as error:
         print("Error while creating csv:\n", error)

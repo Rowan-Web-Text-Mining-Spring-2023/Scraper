@@ -10,8 +10,7 @@ def fetch_tweets_by_user(user: str, number_of_tweets: int = 10):
     for tweet in api_response[:number_of_tweets]:
         tweet_id = validate_value(tweet, "id")
         tweet_statistics = fetch_tweets_by_id(tweet_id)
-
-        # I really need to refactor this
+        # refactor
         tweets.append(
             {
                 "url": tweet_url_builder(tweet_id),
@@ -25,7 +24,7 @@ def fetch_tweets_by_user(user: str, number_of_tweets: int = 10):
                 "conversation_id": validate_value(tweet, "conversation_id"),
                 "lang": validate_value(tweet, "lang"),
                 "source": validate_value(tweet, "source"),
-                "coordinates": validate_value(tweet, "place"),
+                "coordinates": validate_value(tweet.place, "name"),
             }
         )
 
